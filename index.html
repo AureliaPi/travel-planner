@@ -3,12 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>旅行规划</title>
+
+  <title>珠港澳一日行｜当天往返旅行规划</title>
+  <meta
+    name="description"
+    content="从珠海出发，规划香港、澳门当天往返行程。"
+  >
+
+  <!-- 引入样式文件 -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 引入交互文件 -->
+  <script src="script.js" defer></script>
 </head>
 
 <body>
-  <h1>我的旅行规划网站</h1>
-  <p>从珠海出发，轻松规划香港、澳门一日游。</p>
-  <button>开始规划</button>
+  <!-- 顶部导航 -->
+  <header class="navbar">
+    <a class="logo" href="#">珠港澳一日行</a>
+
+    <nav>
+      <a href="#planner">规划行程</a>
+      <a href="#result">推荐路线</a>
+      <a href="#map">路线地图</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 首屏介绍 -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">ZHUHAI · HONG KONG · MACAU</p>
+
+        <h1>
+          从珠海出发，<br>
+          安排一次不慌张的当天往返
+        </h1>
+
+        <p class="hero-description">
+          根据目的地、出发时间、预算和旅行偏好，
+          生成包含口岸、交通、景点与返程提醒的一日行程。
+        </p>
+
+        <a class="primary-button" href="#planner">开始规划</a>
+      </div>
+    </section>
+
+    <!-- 用户选项 -->
+    <section class="planner-section" id="planner">
+      <div class="section-heading">
+        <p class="section-number">01</p>
+
+        <div>
+          <h2>告诉我你想怎么走</h2>
+          <p>先选择基本条件，稍后还可以随时修改。</p>
+        </div>
+      </div>
+
+      <form class="planner-form" id="tripForm">
+        <label>
+          出发地点
+          <input
+            id="departure"
+            type="text"
+            value="珠海"
+            placeholder="例如：珠海"
+          >
+        </label>
+
+        <label>
+          目的地
+          <select id="destination">
+            <option value="hongkong">香港</option>
+            <option value="macau">澳门</option>
+          </select>
+        </label>
+
+        <label>
+          出发日期
+          <input id="travelDate" type="date">
+        </label>
+
+        <label>
+          最早出发时间
+          <input id="startTime" type="time" value="07:00">
+        </label>
+
+        <label>
+          单人预算
+          <select id="budget">
+            <option value="300">300 元以内</option>
+            <option value="500" selected>300～500 元</option>
+            <option value="800">500～800 元</option>
+            <option value="unlimited">预算不限</option>
+          </select>
+        </label>
+
+        <label>
+          旅行偏好
+          <select id="preference">
+            <option value="classic">经典必打卡</option>
+            <option value="food">美食优先</option>
+            <option value="photo">拍照散步</option>
+            <option value="relaxed">轻松少走路</option>
+          </select>
+        </label>
+
+        <button class="generate-button" id="generateBtn" type="button">
+          生成我的当天行程
+        </button>
+      </form>
+    </section>
+
+    <!-- 推荐结果 -->
+    <section class="result-section" id="result">
+      <div class="section-heading">
+        <p class="section-number">02</p>
+
+        <div>
+          <h2>推荐路线</h2>
+          <p>生成后，这里会显示适合你的行程时间线。</p>
+        </div>
+      </div>
+
+      <div class="empty-result" id="tripResult">
+        <span>✦</span>
+        <h3>你的行程还没有生成</h3>
+        <p>完成上面的选项后，点击“生成我的当天行程”。</p>
+      </div>
+    </section>
+
+    <!-- 地图位于选项和路线结果的下方 -->
+    <section class="map-section" id="map">
+      <div class="section-heading">
+        <p class="section-number">03</p>
+
+        <div>
+          <h2>路线地图</h2>
+          <p>后续将在这里接入真实地点和地图。</p>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <div>
+          <span>⌖</span>
+          <h3>路线地图区域</h3>
+          <p>口岸、交通节点和景点会按照顺序显示在这里。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>珠港澳一日行 · 从一条真正可执行的路线开始</p>
+  </footer>
 </body>
 </html>
